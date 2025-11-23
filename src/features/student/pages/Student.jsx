@@ -16,7 +16,7 @@ export default function Student() {
         buttonLabel="Add Student"
         form={student.form}
     >
-   <BasicModel header="Create Student" form={student.form} size='w-[35%]' >
+   <BasicModel header="Create Student" form={student.form} size="w-rull lg:w-[35%]" >
     <FormLayout formData={student}  fields={ () => fields (student.sectinState)}/>
    </BasicModel>
     {/* <CardLayout  CardConfig={student.ref} data={Card(student.action)}/> */}

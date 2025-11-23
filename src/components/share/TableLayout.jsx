@@ -8,19 +8,19 @@ export default function TableLayout({
   pagination = true,
   columns,
   data,
-  
 }) {
   const TableToolbar = () => (
-    <div className="bg-white rounded-xl shadow-md p-6 mb-6">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
-        <div className="flex flex-wrap gap-4">
+    <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 mb-6">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        
+        {/* Search + Filters */}
+        <div className="flex flex-wrap gap-3 sm:gap-4">
           {search && (
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <input
                 type="text"
-                id="student-search"
-                placeholder="Search students..."
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                placeholder="Search..."
+                className="pl-10 pr-4 py-2 w-full sm:w-auto border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               <svg
                 className="h-5 w-5 text-gray-400 absolute left-3 top-2.5"
@@ -40,39 +40,33 @@ export default function TableLayout({
 
           {filter && (
             <>
-              <select
-                id="class-filter"
-                className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              >
-                <option value="">All Classes</option>
-                <option value="10A">Class 10A</option>
-                <option value="10B">Class 10B</option>
-                <option value="11A">Class 11A</option>
-                <option value="11B">Class 11B</option>
-                <option value="12A">Class 12A</option>
-                <option value="12B">Class 12B</option>
+              <select className="border border-gray-300 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base focus:ring-2 focus:ring-primary-500">
+                <option>All Classes</option>
+                <option>10A</option>
+                <option>10B</option>
+                <option>11A</option>
+                <option>11B</option>
               </select>
-              <select
-                id="status-filter"
-                className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              >
-                <option value="">All Status</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+
+              <select className="border border-gray-300 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base focus:ring-2 focus:ring-primary-500">
+                <option>All Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
               </select>
             </>
           )}
         </div>
 
-        <div className="flex space-x-2">
+        {/* Export / Import Buttons */}
+        <div className="flex gap-2 self-start sm:self-auto">
           {exportBtn && (
-            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+            <button className="bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base hover:bg-green-700 transition">
               Export CSV
             </button>
           )}
 
           {importBtn && (
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition">
               Import CSV
             </button>
           )}
@@ -81,93 +75,72 @@ export default function TableLayout({
     </div>
   );
 
-
-
-  const Pagination = () => {
-    return (
-      pagination && (
-        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-          <div className="flex-1 flex justify-between sm:hidden">
-            <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-              Previous
-            </button>
-            <button className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-              Next
-            </button>
-          </div>
-          <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">1</span> to{" "}
-                <span className="font-medium">3</span> of{" "}
-                <span className="font-medium">1247</span> results
-              </p>
-            </div>
-            <div>
-              <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
-                <button className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                  Previous
-                </button>
-                <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                  1
-                </button>
-                <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                  2
-                </button>
-                <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                  3
-                </button>
-                <button className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                  Next
-                </button>
-              </nav>
-            </div>
-          </div>
+  const Pagination = () =>
+    pagination && (
+      <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+        {/* Mobile Pagination */}
+        <div className="flex-1 flex justify-between sm:hidden">
+          <button className="px-4 py-2 border rounded-md text-sm text-gray-700">
+            Previous
+          </button>
+          <button className="px-4 py-2 border rounded-md text-sm text-gray-700">
+            Next
+          </button>
         </div>
-      )
+
+        {/* Desktop Pagination */}
+        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+          <p className="text-sm text-gray-700">Showing 1 to 3 of 1247 results</p>
+          <nav className="inline-flex rounded-md shadow-sm -space-x-px">
+            <button className="px-3 py-2 border rounded-l-md text-sm">Prev</button>
+            <button className="px-3 py-2 border text-sm">1</button>
+            <button className="px-3 py-2 border text-sm">2</button>
+            <button className="px-3 py-2 border text-sm">3</button>
+            <button className="px-3 py-2 border rounded-r-md text-sm">Next</button>
+          </nav>
+        </div>
+      </div>
     );
-  };
 
   return (
     <>
       {/* Search and Filter */}
       <TableToolbar />
-      {/* Students Table */}
-      <div className="  bg-white rounded-xl shadow-md overflow-hidden">
+
+      {/* Table */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden">
         <div className="overflow-x-auto">
-          <table className=" min-w-full divide-y divide-gray-200">
+          <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                {Array.isArray (columns) &&
-                  columns.map((col, inx) => (
-                    <th
-                      key={inx}
-                     className="px-3 md:px-6 py-2 md:py-3 text-left text-sm font-medium text-gray-700 "
-
-                    >
-                       {col.label}
-                    </th>
-                  ))}
+                {columns?.map((col, idx) => (
+                  <th
+                    key={idx}
+                    className="px-3 sm:px-6 py-2 sm:py-3 text-left text-sm font-medium text-gray-700"
+                  >
+                    {col.label}
+                  </th>
+                ))}
               </tr>
             </thead>
+
             <tbody className="bg-white divide-y divide-gray-200">
-              {data &&
-                data.map((row, index) => (
-                  <tr key={index} className="hover:bg-gray-50">
-                    {columns &&
-                      columns.map((col, inx) => (
-                        <td
-                          key={inx}
-                          className="px-6 py-4 text-sm text-gray-900"
-                        >
-                          {col.cell ? col.cell(row) : row[col.key]}
-                        </td>
-                      ))}
-                  </tr>
-                ))}
+              {data?.map((row, i) => (
+                <tr key={i} className="hover:bg-gray-50">
+                  {columns?.map((col, j) => (
+                    <td
+                      key={j}
+                      className="px-3 sm:px-6 py-2 sm:py-4 text-sm text-gray-900"
+                    >
+                      {col.cell ? col.cell(row) : row[col.key]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
+
         {/* Pagination */}
         <Pagination />
       </div>

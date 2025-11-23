@@ -17,7 +17,7 @@ export default function Section() {
         form={studentSection.form}
         
       >
-    <BasicModel header="Create Section" form={studentSection.form} size="w-[32%]"> 
+    <BasicModel header="Create Section" form={studentSection.form} size="w-rull lg:w-[32%]"> 
       <FormLayout formData={studentSection} fields={ () => fields(studentSection.sectinState)}/>
     </BasicModel>
     <TableLayout filter={false} columns={table(studentSection.action)}

@@ -17,7 +17,7 @@ export default function Subject() {
         buttonLabel="Add Subject"
         form={Subject.form}
       >
-        <BasicModel header="Create Student" form={Subject.form} size="w-[30%]">
+        <BasicModel header="Create Student" form={Subject.form} size="w-rull lg:w-[30%]">
           <FormLayout formData={Subject} fields={ () => fields (Subject.sectinState)}/>
         </BasicModel>
         <CardLayout CardConfig={Subject.list} data={Card(Subject.action)}/>
