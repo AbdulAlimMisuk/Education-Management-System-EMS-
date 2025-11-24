@@ -13,7 +13,7 @@ export default function Subject() {
     <>
       <PageLayout
         title="Subject List"
-        description="Manage subject information and records"
+        description="Subject information and records"
         buttonLabel="Add Subject"
         form={Subject.form}
       >

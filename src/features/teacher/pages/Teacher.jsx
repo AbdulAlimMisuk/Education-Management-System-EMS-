@@ -12,8 +12,8 @@ export default function Teacher() {
     const teacher =useTeacher();
   return (
     <>
-    <PageLayout  title="Teachers Management"
-        description="Manage teachers information and records"
+    <PageLayout  title="Teachers List"
+        description="Tteachers information and records"
         buttonLabel="Add Teachers"
         form={teacher.form}
         >

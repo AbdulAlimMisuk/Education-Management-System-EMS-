@@ -11,8 +11,8 @@ export default function Section() {
   return (
     <>
       <PageLayout
-        title="Section Management"
-        description="Manage section information and records"
+        title="Section List"
+        description="Section information and records"
         buttonLabel="Add Section"
         form={studentSection.form}
         

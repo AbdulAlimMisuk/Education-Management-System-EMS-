@@ -9,10 +9,7 @@ export default function PageLayout({
 }) {
   return (
     <div id="students-section" className="content-section p-4 sm:p-6">
-
       <div className="flex items-center justify-between w-full mb-6">
-        
-        {/* LEFT SIDE */}
         <div className="flex flex-col">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
             {title}
@@ -22,7 +19,6 @@ export default function PageLayout({
           </p>
         </div>
 
-        {/* BUTTON — FIXED HEIGHT */}
         <button
           id="add-student-btn"
           className="
@@ -36,14 +32,13 @@ export default function PageLayout({
             flex items-center justify-center 
             space-x-2 
             shadow-lg ml-4
-            h-12            /* FIXED HEIGHT */
+            h-12           
           "
           onClick={() => form.reset({ model: true })}
         >
           <IoMdAdd size={18} />
           <span className="text-sm sm:text-base">{buttonLabel}</span>
         </button>
-
       </div>
 
       {children}

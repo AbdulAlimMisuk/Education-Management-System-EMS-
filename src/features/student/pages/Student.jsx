@@ -11,8 +11,8 @@ export default function Student() {
   return (
     <>
     <PageLayout
-            title="Student Management"
-        description="Manage student information and records"
+            title="Student List"
+        description="Student information and records"
         buttonLabel="Add Student"
         form={student.form}
     >

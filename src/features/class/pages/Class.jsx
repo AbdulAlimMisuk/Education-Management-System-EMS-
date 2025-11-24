@@ -11,8 +11,8 @@ export default function Class() {
   return (
     <>
       <PageLayout
-        title="Class Management"
-        description="Manage class information and records"
+        title="Class List"
+        description="Class information and records"
         buttonLabel="Add Class"
         header="Add New Class"
         form={studentClass.form}
